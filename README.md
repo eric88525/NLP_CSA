@@ -1,6 +1,7 @@
 # 專題
 [CSA](https://arxiv.org/pdf/2002.07338.pdf)
-
+[BIBLOSA]()
+[attention is all you need](https://arxiv.org/pdf/1706.03762.pdf)
 
 # passage Encoder
 + BiBLOSA
@@ -14,6 +15,7 @@
 
 
 # Decoder
+
 
 # Program
 
@@ -30,7 +32,9 @@
     + CSA
         + CrossAttention(de,dq,mode)
             + de is xi_dim, dq is q_dim , mode = 'mul' or 'add'
-            + output 為 S = \[ p0x0,p1x1,p2x2\]
+            + output 為 S = [[p0],[p1],[p2]...]
+        + positionwise feedforward network
+            + 
 + data.py
     + 提供 HotpotQA資料
     + ITER內有三種屬性: Question / Context / Answer
