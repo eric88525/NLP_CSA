@@ -40,4 +40,5 @@
     + ITER內有三種屬性: Question / Context / Answer
     + wordEmbedding 為 glove6B300d
     + train.csv dev.csv
+    + 注意在batch時，要進行transpose(0,1) 才能變成[batch_size * sequence_len]
  
