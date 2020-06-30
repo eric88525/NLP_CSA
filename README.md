@@ -11,7 +11,8 @@
 
 
 # query Encoder
-+ self-attention + S2T attention
++ <multihead-attention + positionwiseFeedforward>*2
++ S2T attention
 
 
 # Decoder
@@ -29,7 +30,8 @@
     + Encoder
         + self-attention
         + s2tSA (args,hidden_size)
-    + CSA
+    + CSA(self,args,dx,dq)
+        + output: batch,sequence_len,word_dim
         + CrossAttention(de,dq,mode)
             + de is xi_dim, dq is q_dim , mode = 'mul' or 'add'
             + output 為 S = [[p0],[p1],[p2]...]
