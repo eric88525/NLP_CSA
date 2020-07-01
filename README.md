@@ -6,14 +6,14 @@
 # passage Encoder
 + BiBLOSA
 
-
 # CSA
-
++ CSA(args,dx,dq)
 
 # query Encoder
-+ <multihead-attention + positionwiseFeedforward>*2
-+ S2T attention
 
++ CSAEncoder(word_dim,n_head,n_hid,dropout,nlayers):
+    + <multihead-attention + positionwiseFeedforward>*2
+    + S2T attention
 
 # Decoder
 
@@ -44,3 +44,10 @@
     + train.csv dev.csv
     + 注意在batch時，要進行transpose(0,1) 才能變成[batch_size * sequence_len]
  
+ # args
+parser.add_argument('--batch-size', default=32, type=int)
+parser.add_argument('--gpu', default=torch.device('cuda:0' if torch.cuda.is_available() else 'cpu'), type=int)
+parser.add_argument('--csa-mode',default='add',type = str)
+parser.add_argument('--word-dim',default=300,type = int)
+parser.add_argument('--block-size', default=-1, type=int)
+parser.add_argument('--mSA-scalar', default=5.0, type=float)
