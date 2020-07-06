@@ -1,0 +1,4 @@
+.vector_cache/*
+.data/*
+./CSA/.vector_cache
+./Final/.vector_cache/*
