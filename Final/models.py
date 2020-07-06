@@ -190,7 +190,7 @@ class BiBloSAN(customizedModule):
         u_fw = self.mBloSA_fw(input_fw)
         u_bw = self.mBloSA_bw(input_bw)    
         u_bi = torch.cat([u_fw, u_bw], dim=2)
-        print('ufw: {} ubw: {} u_bi: {}'.format(u_fw.shape,u_bw.shape,u_bi.shape))
+        #print('ufw: {} ubw: {} u_bi: {}'.format(u_fw.shape,u_bw.shape,u_bi.shape))
         # (batch, seq_len, word_dim * 2) -> (batch, word_dim * 2)
         #u_bi = self.s2tSA(torch.cat([u_fw, u_bw], dim=2))
         return u_bi
@@ -484,13 +484,13 @@ class CSATransformer(customizedModule):
             p = self.word_emb(p) # p (batch(1),block,passage_len,word_dim)
             q = batch.Question[i] # a tensor [passage_length]
             q = self.word_emb(q).unsqueeze(0) # q (question_length,word_dim)
-            print('P:{} Q {}'.format(p.shape,q.shape))
+            #print('P:{} Q {}'.format(p.shape,q.shape))
             q = self.q_encoder(q)
             p = self.p_encoder(p) 
             c = self.csa(p,q)
             res = self.decoder(c).squeeze()
             #print('After encode: P {} Q {} RES {}'.format(p.shape,q.shape,res.shape))
-            print(res)
+            #print(res)
             pred.append(res)
         return pred
 
